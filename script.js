@@ -96,3 +96,46 @@ function startQuiz() {
         
     setNextQuestion();
 }
+
+function setNextQuestion() {
+    resetState();
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+function showQuestion(question) {
+    questionDiv.innerText = question.question;
+    question.answers.forEach(answer => {
+        var button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add("answer");
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+        answersDiv.appendChild(button);
+        var lineBreak = document.createElement("br");
+        answersDiv.appendChild(lineBreak);
+    });
+    currentQuestionIndex += 1;
+}
+
+function resetState() {
+    while (answersDiv.firstChild) {
+        answersDiv.removeChild(answersDiv.firstChild);
+    }
+}
+
+function selectAnswer(e) {
+    var selectedAnswer = e.target;
+    var correct = selectedAnswer.dataset.correct;
+    if (!correct) {
+        timeleft -= 10;
+    }
+    if (currentQuestionIndex <= 4) {
+        setNextQuestion();
+    }
+    else {
+        currentQuestionIndex = 5;
+        endQuiz();
+    }
+}
