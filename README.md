@@ -29,7 +29,6 @@ THEN I can save my initials and score
 
 Deployed: https://smccarthy17.github.io/Challenge4CodeQuiz/
 
-
 Study group: Susan, Sarah, Chris P, Jackson, Ricky, Karan, Ekow, Trent
 
-![](CodeQuiz2.png);
+![](./assets/images/CodeQuiz2.png);
