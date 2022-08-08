@@ -27,6 +27,9 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 
-Deployed:
+Deployed: https://smccarthy17.github.io/Challenge4CodeQuiz/
+
 
 Study group: Susan, Sarah, Chris P, Jackson, Ricky, Karan, Ekow, Trent
+
+![](CodeQuiz2.png);
