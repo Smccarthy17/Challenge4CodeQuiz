@@ -31,4 +31,4 @@ Deployed: https://smccarthy17.github.io/Challenge4CodeQuiz/
 
 Study group: Susan, Sarah, Chris P, Jackson, Ricky, Karan, Ekow, Trent
 
-![](./assets/images/CodeQuiz2.png);
+![](./assets/images/CodeQuiz2.png)
