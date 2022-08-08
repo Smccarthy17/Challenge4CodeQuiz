@@ -62,3 +62,37 @@ const questionsArray = [
         ]
     }
 ];
+
+var shuffledQuestions, currentQuestionIndex;
+
+startButton.addEventListener("click", startQuiz);
+
+function reloadQuiz() {
+    location.reload();
+}
+
+function startQuiz() {
+    startButton.classList.add("hidden");
+    containerDiv.classList.remove("hidden");
+    scoreDiv.classList.add("hidden");
+    viewScores.classList.remove("hidden");
+
+    shuffledQuestions = questionsArray.sort(() => Math.random() -0.5);
+    currentQuestionIndex = 0;
+    
+    var quizTimer = setInterval(function(){
+        if ((timeleft <= 0) && (currentQuestionIndex < 5)) {
+            clearInterval(quizTimer);
+            endQuiz();
+        }
+        else if ((timeleft <= 0) || (currentQuestionIndex == 5)) {
+            clearInterval(quizTimer);
+        }
+        
+          timerDisplay.innerHTML = timeleft;
+
+        timeleft -= 1;
+      }, 1000); 
+        
+    setNextQuestion();
+}
