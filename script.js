@@ -139,3 +139,70 @@ function selectAnswer(e) {
         endQuiz();
     }
 }
+
+function endQuiz() {
+    const score = timeleft;
+    containerDiv.classList.add("hidden");
+    timerDisplay.classList.add("hidden");
+
+    scoreDisplay.classList.remove("hidden");
+    scoreDisplay.innerText = "Final Score: " + score;
+    setHighScore(score);
+
+    startButton.classList.remove("hidden");
+    restartButton.classList.remove("hidden");
+}
+
+var highScoreList = JSON.parse(localStorage.getItem("highScores")) || [];
+var maxScores = 10;
+
+function setHighScore(s) {
+    playerName = window.prompt("Your score is " + s + ". Please enter your name");
+    if (!playerName) {
+        window.alert("please enter your name");
+        setHighScore(s);
+    }
+    var scoreObj = {
+        score: s,
+        username: playerName
+    };
+    highScoreList.push(scoreObj);
+    highScoreList.sort( (a,b) => b.score - a.score);
+    highScoreList.splice(maxScores);
+
+    localStorage.setItem("highScores", JSON.stringify(highScoreList));
+    startButton.classList.remove("hidden");
+}
+
+function showHighScores() {
+
+    startButton.classList.remove("hidden");
+    scoreDiv.classList.remove("hidden");
+    scoreDisplay.classList.add("hidden");
+
+    viewScores.classList.add("hidden");
+
+    scoreDiv.innerHTML = "Top 10 Scores";
+
+    if (highScoreList.length > 0) {
+        for (let i = 0; i < highScoreList.length; i++) {
+            var playername = String(highScoreList[i].username);
+            var playerscore = String(highScoreList[i].score);
+            var hiscore = document.createElement("p");
+            hiscore.classList.add("hiscores");
+            scoreDiv.appendChild(hiscore);
+            hiscore.innerText = playername + ": " + playerscore;
+            
+            console.log(playername, playerscore);
+        }
+
+        console.log(highScoreList);
+    }
+    else {
+        scoreDiv.innerHTML = "No score";
+    }
+}
+
+var viewScores = document.getElementById("view-scores");
+viewScores.addEventListener("click", showHighScores);
+
