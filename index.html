@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<br lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Code Quiz</title>
+</head>
+
+
+<body>
+<header class="header">
+    <h1>Code Quiz </h1>
+    <p>Answer the questions quickly but carefully. A wrong answer will deduct 10 seconds from your time! </p>
+</header>
+
+<div class="scores hidden" id="scores"></div>
+
+<div class="start" id="timer">
+    <button class="start-btn" id="start-btn">Start Quiz</button>
+</div>
+
+<div class="start hidden" id="score-display"></div>
+
+</?br>
+<div class="container hidden" id="container">
+    <div class="questions" id="questions">Questions</div>
+    <div class="answers" id="answer-btns">
+    </div>
+</div>
+
+<div class="footer">
+    <a id="view-scores">View High Scores</a>
+    <br />
+    <a id="restart" class="hidden">Retake Quiz</a>
+</div>
+
+<!-- <div id="questionSection">
+        <h2 id="questionTitle"></h2>
+        <button id="one"></button>
+        <button id="two"></button>
+        <button id="three"></button>
+        <button id="four"></button>
+    </div> -->
+<script src="./script.js"></script>
+</body>
+
+</html>
